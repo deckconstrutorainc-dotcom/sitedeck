@@ -93,7 +93,7 @@ export default function Home() {
             <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
               <div className="absolute inset-x-6 inset-y-10 -z-10 rounded-full bg-deck-bone-soft blur-2xl" />
               <Image
-                src="/images/marca/capa-hero-lg.webp"
+                src="/images/marca/predio-hero-lg.webp"
                 alt="Empreendimento residencial entregue pela Deck Construtora"
                 fill
                 priority
