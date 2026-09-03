@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
-  { href: "/sobre", label: "Empresa" },
-  { href: "/portfolio", label: "Obras" },
+  { href: "/sobre", label: "Sobre" },
   { href: "/servicos", label: "Serviços" },
+  { href: "/portfolio", label: "Portfólio" },
   { href: "/equipe", label: "Equipe" },
   { href: "/contato", label: "Contato" },
 ];
@@ -28,24 +28,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
-
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        rolou || open
-          ? "bg-deck-ink/90 backdrop-blur-md"
-          : "bg-transparent backdrop-blur-0"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        rolou || open ? "bg-deck-ink/95 backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:h-21">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" onClick={() => setOpen(false)} className="flex items-center">
           <Image
             src={
@@ -54,28 +43,26 @@ export default function Header() {
                 : "/images/marca/logo-horizontal.png"
             }
             alt="Deck Construtora e Incorporadora"
-            width={168}
-            height={60}
+            width={180}
+            height={64}
             priority
-            className="h-9 w-auto"
+            className="h-10 w-auto"
           />
         </Link>
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {LINKS.map((link) => {
             const ativo = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors [text-shadow:0_1px_3px_rgb(0_0_0_/_0.25)] ${
+                className={`text-sm transition-colors ${
                   ativo
-                    ? escuro
-                      ? "text-white"
-                      : "text-deck-ink"
+                    ? "text-deck-accent-strong"
                     : escuro
                       ? "text-white/80 hover:text-white"
-                      : "text-deck-ink/55 hover:text-deck-ink"
+                      : "text-deck-ink/70 hover:text-deck-ink"
                 }`}
               >
                 {link.label}
@@ -84,28 +71,31 @@ export default function Header() {
           })}
         </nav>
 
-        <Link
-          href="/contato"
-          className={`eyebrow hidden items-center gap-2 border-b pb-0.5 transition-colors lg:flex ${
-            escuro
-              ? "border-white/30 text-white hover:border-white"
-              : "border-deck-ink/30 text-deck-ink hover:border-deck-ink"
-          }`}
-        >
-          Fale conosco
-          <span aria-hidden>↗</span>
-        </Link>
+        <div className="hidden items-center lg:flex">
+          <Link
+            href="/contato"
+            className="group flex items-center overflow-hidden rounded-md"
+          >
+            <span className="flex h-11 w-11 items-center justify-center bg-deck-accent-strong text-deck-ink transition-colors group-hover:bg-deck-accent">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <span className="eyebrow bg-deck-accent px-5 py-[0.95rem] text-deck-ink transition-colors group-hover:bg-deck-accent-strong">
+              Solicite um orçamento
+            </span>
+          </Link>
+        </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={open}
-          className={`flex h-11 w-11 items-center justify-center lg:hidden ${
+          aria-label="Abrir menu"
+          className={`flex h-11 w-11 items-center justify-center rounded-md lg:hidden ${
             escuro ? "text-white" : "text-deck-ink"
           }`}
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             {open ? (
               <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
             ) : (
@@ -116,14 +106,14 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="h-[calc(100vh-5rem)] bg-deck-ink px-5 pb-10 pt-6 sm:px-8 lg:hidden">
+        <nav className="border-t border-white/10 bg-deck-ink px-5 pb-6 pt-2 lg:hidden">
           <ul className="flex flex-col">
             {LINKS.map((link) => (
-              <li key={link.href} className="border-b border-white/10">
+              <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="display block py-5 text-3xl text-white/85 hover:text-white"
+                  className="block border-b border-white/5 py-3 text-sm text-white/80 hover:text-deck-accent"
                 >
                   {link.label}
                 </Link>
@@ -133,10 +123,9 @@ export default function Header() {
           <Link
             href="/contato"
             onClick={() => setOpen(false)}
-            className="eyebrow mt-10 inline-flex items-center gap-2 text-white"
+            className="eyebrow mt-5 block rounded-md bg-deck-accent px-5 py-3 text-center text-deck-ink"
           >
-            Fale conosco
-            <span aria-hidden>↗</span>
+            Solicite um orçamento
           </Link>
         </nav>
       )}

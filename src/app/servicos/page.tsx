@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import CtaContato from "@/components/CtaContato";
 import HeroInterno from "@/components/HeroInterno";
 import Reveal from "@/components/Reveal";
-import SectionLabel from "@/components/SectionLabel";
+import Eyebrow from "@/components/Eyebrow";
 import Accordion from "@/components/Accordion";
 
 export const metadata: Metadata = {
-  title: "Serviços",
+  title: "Serviços | Deck Construtora e Incorporadora",
   description:
     "Soluções completas em engenharia e construção civil: edificações públicas e privadas, reformas, gestão de obras e manutenção predial.",
 };
@@ -16,34 +16,34 @@ export const metadata: Metadata = {
 // detalhavam os serviços por categoria. Ajustar junto com o cliente.
 const SERVICOS = [
   {
-    numero: "01",
-    titulo: "Edificações públicas",
-    texto: "Execução de obras para órgãos públicos, com atendimento a exigências normativas e fiscalização técnica rigorosa.",
+    titulo: "Edificações Públicas",
+    texto:
+      "Execução de obras para órgãos públicos, com atendimento a exigências normativas, cronogramas de licitação e fiscalização técnica rigorosa.",
   },
   {
-    numero: "02",
-    titulo: "Edificações privadas",
-    texto: "Construção de empreendimentos comerciais, residenciais e industriais, da fundação ao acabamento.",
+    titulo: "Edificações Privadas",
+    texto:
+      "Construção de empreendimentos comerciais, residenciais e industriais, da fundação ao acabamento.",
   },
   {
-    numero: "03",
-    titulo: "Reformas e ampliações",
-    texto: "Intervenções em edificações existentes com planejamento que minimiza impactos na operação do cliente.",
+    titulo: "Reformas e Ampliações",
+    texto:
+      "Intervenções em edificações existentes com planejamento que minimiza impactos na operação do cliente.",
   },
   {
-    numero: "04",
-    titulo: "Gestão e fiscalização de obras",
-    texto: "Acompanhamento técnico de cronograma, custos e qualidade, com gestão de dados e relatórios de evolução.",
+    titulo: "Gestão e Fiscalização de Obras",
+    texto:
+      "Acompanhamento técnico de cronograma, custos e qualidade, com gestão de dados e relatórios de evolução.",
   },
   {
-    numero: "05",
-    titulo: "Incorporação imobiliária",
-    texto: "Desenvolvimento de empreendimentos imobiliários, unindo viabilidade técnica e visão de mercado.",
+    titulo: "Incorporação Imobiliária",
+    texto:
+      "Desenvolvimento de empreendimentos imobiliários, unindo viabilidade técnica e visão de mercado.",
   },
   {
-    numero: "06",
-    titulo: "Manutenção predial",
-    texto: "Serviços corretivos e preventivos, incluindo pintura, impermeabilização e recuperação estrutural.",
+    titulo: "Manutenção Predial",
+    texto:
+      "Serviços corretivos e preventivos, incluindo pintura, impermeabilização e recuperação estrutural.",
   },
 ];
 
@@ -66,7 +66,7 @@ const PERGUNTAS = [
   {
     titulo: "Como solicitar um orçamento?",
     texto:
-      "Entre em contato pelo telefone (27) 3291-4003, pelo e-mail deck@deckconstrutora.com.br ou pelo formulário da página de contato.",
+      "Entre em contato pelo telefone (27) 3291-4003, pelo e-mail deck@deckconstrutora.com.br ou pelo formulário da página de contato. Nossa equipe técnica avaliará o escopo do seu projeto.",
   },
 ];
 
@@ -74,38 +74,56 @@ export default function ServicosPage() {
   return (
     <div className="bg-deck-bone">
       <HeroInterno
-        eyebrow="Serviços"
+        eyebrow="O que fazemos"
         titulo="Soluções completas em engenharia e construção civil"
         descricao="Da fundação ao acabamento, atuamos em cada etapa da obra com planejamento técnico, tecnologia e gestão inteligente."
         imagem="/images/obras/cat-bombeiros/foto-03-full.webp"
       />
 
-      {/* LISTA DE SERVIÇOS */}
-      <section className="mx-auto max-w-[1440px] px-5 py-24 sm:px-8 lg:py-36">
-        <SectionLabel numero="01">Capacidades</SectionLabel>
-        <h2 className="display mt-10 max-w-2xl text-4xl text-deck-ink sm:text-5xl">
-          Como a Deck entrega cada projeto.
-        </h2>
+      {/* GRID DE SERVIÇOS */}
+      <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+        <Reveal>
+          <Eyebrow>Nossas capacidades</Eyebrow>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="display mt-8 max-w-2xl text-4xl text-deck-ink sm:text-5xl">
+            Como a Deck entrega cada projeto
+          </h2>
+        </Reveal>
 
-        <ul className="mt-16">
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICOS.map((s, i) => (
-            <Reveal key={s.titulo} delay={i * 0.04}>
-              <li className="grid grid-cols-1 gap-2 border-t border-deck-line py-8 last:border-b sm:grid-cols-[80px_1fr_1.4fr] sm:items-baseline sm:gap-8">
-                <span className="eyebrow text-deck-grey">{s.numero}</span>
-                <h3 className="display text-2xl text-deck-ink sm:text-3xl">{s.titulo}</h3>
-                <p className="max-w-md text-deck-grey">{s.texto}</p>
-              </li>
+            <Reveal key={s.titulo} delay={(i % 3) * 0.08}>
+              <div
+                className={`h-full rounded-xl p-8 transition-transform duration-500 hover:-translate-y-1 ${
+                  i === 2
+                    ? "bg-deck-accent text-deck-ink"
+                    : "bg-deck-bone-soft text-deck-ink"
+                }`}
+              >
+                <span className={`eyebrow ${i === 2 ? "text-deck-ink/45" : "text-deck-ink/30"}`}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-5 text-xl font-semibold">{s.titulo}</h3>
+                <p
+                  className={`mt-3 text-sm leading-relaxed ${
+                    i === 2 ? "text-deck-ink/70" : "text-deck-ink/60"
+                  }`}
+                >
+                  {s.texto}
+                </p>
+              </div>
             </Reveal>
           ))}
-        </ul>
+        </div>
       </section>
 
-      {/* DIFERENCIAL */}
-      <section className="border-t border-deck-line bg-deck-ink py-24 text-white lg:py-36">
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
-          <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
+      {/* DIFERENCIAIS COM IMAGEM */}
+      <section className="bg-deck-ink py-24 text-white">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
             <Reveal>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
                   src="/images/obras/cat-bombeiros/foto-04-medium.webp"
                   alt="Equipe técnica da Deck em obra"
@@ -117,18 +135,20 @@ export default function ServicosPage() {
             </Reveal>
 
             <div>
-              <SectionLabel numero="02" tom="claro">Diferencial</SectionLabel>
+              <Reveal>
+                <Eyebrow tom="claro">Nosso diferencial</Eyebrow>
+              </Reveal>
               <Reveal delay={0.1}>
                 <h2 className="display mt-8 text-4xl sm:text-5xl">
-                  Planejamento estratégico e gestão de dados em cada etapa.
+                  Planejamento estratégico e gestão de dados em cada etapa
                 </h2>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="mt-7 max-w-md leading-relaxed text-white/55">
+                <p className="mt-7 leading-relaxed text-white/60">
                   Na Deck Construtora, cada projeto é guiado por planejamento
                   estratégico, gestão de dados e acompanhamento técnico
-                  rigoroso, garantindo previsibilidade, eficiência e
-                  excelência em todas as entregas.
+                  rigoroso, garantindo previsibilidade, eficiência e excelência
+                  em todas as entregas.
                 </p>
               </Reveal>
             </div>
@@ -137,14 +157,20 @@ export default function ServicosPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-3xl px-5 py-24 sm:px-8 lg:py-36">
-        <SectionLabel numero="03">Dúvidas frequentes</SectionLabel>
-        <h2 className="display mt-8 text-4xl text-deck-ink sm:text-5xl">
-          Perguntas comuns.
-        </h2>
-        <div className="mt-14">
-          <Accordion itens={PERGUNTAS} aberturaInicial={0} />
-        </div>
+      <section className="mx-auto max-w-4xl px-5 py-24 sm:px-8">
+        <Reveal>
+          <div className="text-center">
+            <span className="eyebrow text-deck-navy">Dúvidas frequentes</span>
+            <h2 className="display mt-6 text-4xl text-deck-ink sm:text-5xl">
+              Perguntas comuns
+            </h2>
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div className="mt-12">
+            <Accordion itens={PERGUNTAS} aberturaInicial={0} />
+          </div>
+        </Reveal>
       </section>
 
       <CtaContato />

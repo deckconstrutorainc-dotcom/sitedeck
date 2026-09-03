@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import CtaContato from "@/components/CtaContato";
 import HeroInterno from "@/components/HeroInterno";
 import Reveal from "@/components/Reveal";
-import SectionLabel from "@/components/SectionLabel";
+import Eyebrow from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Equipe",
-  description: "Conheça a equipe técnica e a diretoria da Deck Construtora e Incorporadora.",
+  title: "Equipe | Deck Construtora e Incorporadora",
+  description:
+    "Conheça a equipe técnica e a diretoria da Deck Construtora e Incorporadora.",
 };
 
 // Apenas o Diretor Comercial constava nos materiais fornecidos pelo cliente.
@@ -37,49 +38,74 @@ export default function EquipePage() {
   return (
     <div className="bg-deck-bone">
       <HeroInterno
-        eyebrow="Equipe"
+        eyebrow="Nosso time"
         titulo="As pessoas por trás de cada obra"
         descricao="Valorizamos talento, crescimento profissional e trabalho em equipe em todas as etapas dos nossos projetos."
-        imagem="/images/obras/cat-bombeiros/foto-02-full.webp"
+        imagem="/images/obras/benicio-goncalves/foto-02-full.webp"
       />
 
       {/* CULTURA */}
-      <section className="mx-auto max-w-[1440px] px-5 py-24 sm:px-8 lg:py-36">
-        <SectionLabel numero="01">Cultura</SectionLabel>
-        <ul className="mt-16">
+      <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+        <Reveal>
+          <Eyebrow>Nossa cultura</Eyebrow>
+        </Reveal>
+        <div className="mt-14 grid gap-4 md:grid-cols-3">
           {CULTURA.map((c, i) => (
-            <Reveal key={c.titulo} delay={i * 0.06}>
-              <li className="grid grid-cols-1 gap-2 border-t border-deck-line py-8 last:border-b sm:grid-cols-[1fr_1.4fr] sm:items-baseline sm:gap-8">
-                <h3 className="display text-2xl text-deck-ink sm:text-3xl">{c.titulo}</h3>
-                <p className="max-w-md text-deck-grey">{c.texto}</p>
-              </li>
+            <Reveal key={c.titulo} delay={i * 0.08}>
+              <div
+                className={`h-full rounded-xl p-8 ${
+                  i === 1
+                    ? "bg-deck-accent text-deck-ink"
+                    : "bg-deck-bone-soft text-deck-ink"
+                }`}
+              >
+                <h3 className="text-xl font-semibold">{c.titulo}</h3>
+                <p
+                  className={`mt-3 text-sm leading-relaxed ${
+                    i === 1 ? "text-deck-ink/70" : "text-deck-ink/60"
+                  }`}
+                >
+                  {c.texto}
+                </p>
+              </div>
             </Reveal>
           ))}
-        </ul>
+        </div>
       </section>
 
       {/* DIRETORIA */}
-      <section className="border-t border-deck-line bg-deck-ink py-24 text-white lg:py-36">
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
-          <SectionLabel numero="02" tom="claro">Diretoria e coordenação</SectionLabel>
-          <ul className="mt-16 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="bg-deck-ink py-24 text-white">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <Reveal>
+            <Eyebrow tom="claro">Diretoria e coordenação</Eyebrow>
+          </Reveal>
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {EQUIPE.map((pessoa, i) => {
               const definido = pessoa.nome !== "A definir";
               return (
-                <Reveal key={pessoa.cargo} delay={i * 0.06}>
-                  <li className="border-t border-white/10 pt-6">
-                    <h3 className={definido ? "text-lg font-medium" : "text-lg font-medium text-white/35"}>
+                <Reveal key={pessoa.cargo} delay={i * 0.08}>
+                  <div className="h-full rounded-xl border border-white/10 bg-deck-ink-soft p-7">
+                    <div
+                      className={`flex h-14 w-14 items-center justify-center rounded-full text-xl font-semibold ${
+                        definido
+                          ? "bg-deck-accent text-deck-ink"
+                          : "bg-white/5 text-white/25"
+                      }`}
+                    >
+                      {definido ? pessoa.nome.charAt(0) : "—"}
+                    </div>
+                    <h3 className="mt-6 text-lg font-semibold">
                       {definido ? pessoa.nome : "A definir"}
                     </h3>
                     <p className="mt-1 text-sm text-white/45">{pessoa.cargo}</p>
                     {pessoa.contato && (
-                      <p className="mt-4 text-sm text-white/70">{pessoa.contato}</p>
+                      <p className="mt-4 text-sm text-deck-accent">{pessoa.contato}</p>
                     )}
-                  </li>
+                  </div>
                 </Reveal>
               );
             })}
-          </ul>
+          </div>
         </div>
       </section>
 
