@@ -28,7 +28,7 @@ export default function SobrePage() {
         eyebrow="Sobre a Deck"
         titulo="Experiência, tecnologia e gestão inteligente em cada obra"
         descricao="Há mais de 30 anos construindo edificações públicas e privadas no Espírito Santo, com precisão técnica e compromisso com o futuro da construção civil."
-        imagem="/images/obras/sml/foto-11-full.webp"
+        imagem="/images/institucional/quem-somos.webp"
       />
 
       {/* QUEM SOMOS */}
@@ -85,8 +85,8 @@ export default function SobrePage() {
           <Reveal delay={0.08}>
             <div className="relative h-72 overflow-hidden rounded-2xl lg:h-full">
               <Image
-                src="/images/obras/cie/foto-01-medium.webp"
-                alt="Obra da Deck Construtora"
+                src="/images/institucional/missao.webp"
+                alt="Equipe técnica da Deck Construtora em obra"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
@@ -97,8 +97,8 @@ export default function SobrePage() {
           <Reveal delay={0.08}>
             <div className="relative h-72 overflow-hidden rounded-2xl lg:h-full">
               <Image
-                src="/images/obras/cond-morada-do-vale/foto-02-medium.webp"
-                alt="Empreendimento residencial Deck"
+                src="/images/institucional/visao.webp"
+                alt="Equipe da Deck Construtora em obra"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
@@ -122,8 +122,18 @@ export default function SobrePage() {
       </section>
 
       {/* VALORES */}
-      <section className="bg-deck-ink py-24 text-white">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <section className="relative overflow-hidden bg-deck-ink py-24 text-white">
+        <div className="absolute inset-x-0 top-0 h-72 opacity-25">
+          <Image
+            src="/images/institucional/valores-1.webp"
+            alt=""
+            fill
+            aria-hidden
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-deck-ink" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <Reveal>
             <Eyebrow tom="claro">Nossos valores</Eyebrow>
           </Reveal>
@@ -162,19 +172,33 @@ export default function SobrePage() {
       </section>
 
       {/* COMPROMISSO COM A QUALIDADE */}
-      <section className="mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
-        <Reveal>
-          <span className="eyebrow text-deck-navy">Compromisso com a qualidade</span>
-          <p className="display mt-8 text-2xl leading-snug text-deck-ink sm:text-3xl">
-            &ldquo;A verdadeira qualidade nasce da união entre competência
-            técnica, inovação e engajamento humano — pilares que sustentam nossa
-            trajetória e fortalecem nossa reputação como uma empresa sólida,
-            moderna e comprometida com o futuro da construção civil.&rdquo;
-          </p>
-          <p className="mt-8 text-sm text-deck-ink/50">
-            Deck Construtora e Incorporadora
-          </p>
-        </Reveal>
+      <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                src="/images/institucional/compromisso-qualidade.webp"
+                alt="Equipe técnica da Deck Construtora em obra"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <span className="eyebrow text-deck-navy">Compromisso com a qualidade</span>
+            <p className="display mt-8 text-2xl leading-snug text-deck-ink sm:text-3xl">
+              &ldquo;A verdadeira qualidade nasce da união entre competência
+              técnica, inovação e engajamento humano — pilares que sustentam
+              nossa trajetória e fortalecem nossa reputação como uma empresa
+              sólida, moderna e comprometida com o futuro da construção
+              civil.&rdquo;
+            </p>
+            <p className="mt-8 text-sm text-deck-ink/50">
+              Deck Construtora e Incorporadora
+            </p>
+          </Reveal>
+        </div>
       </section>
 
       <CtaContato />
