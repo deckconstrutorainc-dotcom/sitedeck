@@ -28,14 +28,14 @@ export default function GaleriaFotos({
             key={foto}
             type="button"
             onClick={() => setAberta(i)}
-            className="relative aspect-square overflow-hidden rounded-xl bg-deck-mist"
+            className="relative aspect-square overflow-hidden rounded-sm bg-deck-bone-soft"
           >
             <Image
               src={`/images/obras/${slug}/${foto}-thumb.webp`}
               alt={`${titulo} - foto ${i + 1}`}
               fill
               sizes="(min-width: 768px) 25vw, 50vw"
-              className="object-cover transition-transform duration-300 hover:scale-105"
+              className="object-cover transition-transform duration-500 hover:scale-[1.04]"
             />
           </button>
         ))}

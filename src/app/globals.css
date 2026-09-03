@@ -1,40 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #eef2f0;
-  --foreground: #0e1a1f;
+  --background: #f6f5f1;
+  --foreground: #171717;
 
-  /* Escuro profundo (fundo das seções de impacto) */
-  --deck-ink: #0d1b21;
-  --deck-ink-soft: #12252d;
+  /* Neutros — base da identidade (80% da interface) */
+  --deck-bone: #f6f5f1;
+  --deck-bone-soft: #ffffff;
+  --deck-ink: #171717;
+  --deck-ink-soft: #242424;
+  --deck-graphite: #363636;
+  --deck-grey: #6e706d;
+  --deck-line: #dad9d5;
 
-  /* Destaque vibrante — ciano-elétrico derivado do azul da marca */
-  --deck-accent: #5fe6c4;
-  --deck-accent-strong: #2fd3a9;
-
-  /* Azuis da marca */
-  --deck-navy: #1c4b63;
-  --deck-navy-dark: #123245;
-  --deck-slate: #8fa5b3;
-
-  /* Neutros claros */
-  --deck-bone: #eef2f0;
-  --deck-bone-soft: #f7faf9;
+  /* Cor institucional — usada apenas como destaque pontual (~5%) */
+  --deck-accent: #1c4b63;
+  --deck-accent-strong: #123245;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-deck-ink: var(--deck-ink);
-  --color-deck-ink-soft: var(--deck-ink-soft);
-  --color-deck-accent: var(--deck-accent);
-  --color-deck-accent-strong: var(--deck-accent-strong);
-  --color-deck-navy: var(--deck-navy);
-  --color-deck-navy-dark: var(--deck-navy-dark);
-  --color-deck-slate: var(--deck-slate);
   --color-deck-bone: var(--deck-bone);
   --color-deck-bone-soft: var(--deck-bone-soft);
-  --font-sans: var(--font-inter);
+  --color-deck-ink: var(--deck-ink);
+  --color-deck-ink-soft: var(--deck-ink-soft);
+  --color-deck-graphite: var(--deck-graphite);
+  --color-deck-grey: var(--deck-grey);
+  --color-deck-line: var(--deck-line);
+  --color-deck-accent: var(--deck-accent);
+  --color-deck-accent-strong: var(--deck-accent-strong);
+  --font-sans: var(--font-manrope);
 }
 
 body {
@@ -43,19 +39,19 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Label de seção: maiúsculas, tracking largo — assinatura do design de referência */
+/* Label de seção: numeração + maiúsculas, tracking largo */
 .eyebrow {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-/* Títulos grandes e apertados */
+/* Títulos editoriais: peso médio, tracking levemente negativo */
 .display {
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.03;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 html {
@@ -66,4 +62,9 @@ html {
   html {
     scroll-behavior: auto;
   }
+}
+
+:focus-visible {
+  outline: 2px solid var(--deck-accent);
+  outline-offset: 3px;
 }

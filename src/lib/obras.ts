@@ -32,7 +32,7 @@ export const obras: Obra[] = [
     ano: "2020",
     resumo:
       "Edifício institucional executado da estrutura ao acabamento, com brises de fachada, geração solar fotovoltaica e paisagismo.",
-    capa: "foto-09",
+    capa: "foto-05",
     fotos: manifest["parque-tecnologico"]?.length ?? 0,
   },
   {
@@ -43,7 +43,7 @@ export const obras: Obra[] = [
     ano: "2020",
     resumo:
       "Centro de Iniciação ao Esporte com ginásio poliesportivo coberto, quadra oficial, vestiários e áreas de apoio.",
-    capa: "foto-01",
+    capa: "foto-13",
     fotos: manifest["cie"]?.length ?? 0,
   },
   {

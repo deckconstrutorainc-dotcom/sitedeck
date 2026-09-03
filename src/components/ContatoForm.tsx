@@ -18,11 +18,11 @@ export default function ContatoForm() {
   }
 
   const campo =
-    "mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/25 transition-colors focus:border-deck-accent focus:outline-none";
+    "mt-2 w-full border-b border-white/15 bg-transparent py-3 text-sm text-white placeholder-white/25 transition-colors focus:border-white focus:outline-none";
 
   return (
-    <form onSubmit={enviar} className="rounded-2xl bg-deck-ink p-8 sm:p-10">
-      <span className="eyebrow text-deck-accent">Envie uma mensagem</span>
+    <form onSubmit={enviar} className="bg-deck-ink p-8 sm:p-10">
+      <span className="eyebrow text-white/40">Envie uma mensagem</span>
       <h2 className="display mt-5 text-3xl text-white">
         Solicite um orçamento
       </h2>
@@ -78,7 +78,7 @@ export default function ContatoForm() {
           <textarea
             id="mensagem"
             required
-            rows={5}
+            rows={4}
             value={mensagem}
             onChange={(e) => setMensagem(e.target.value)}
             placeholder="Conte-nos sobre o seu projeto"
@@ -88,7 +88,7 @@ export default function ContatoForm() {
 
         <button
           type="submit"
-          className="group flex w-full items-center justify-center gap-3 rounded-lg bg-deck-accent px-6 py-4 transition-colors hover:bg-deck-accent-strong"
+          className="group mt-4 flex w-full items-center justify-center gap-3 bg-white py-4 transition-colors hover:bg-white/90"
         >
           <span className="eyebrow text-deck-ink">Enviar mensagem</span>
           <svg
@@ -97,7 +97,7 @@ export default function ContatoForm() {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2.5"
+            strokeWidth="2"
             className="text-deck-ink transition-transform group-hover:translate-x-1"
           >
             <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
