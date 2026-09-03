@@ -17,6 +17,9 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [rolou, setRolou] = useState(false);
   const pathname = usePathname();
+  // A home tem hero de fundo claro; as demais páginas usam HeroInterno (escuro).
+  const heroClaro = pathname === "/";
+  const escuro = rolou || open || !heroClaro;
 
   useEffect(() => {
     const onScroll = () => setRolou(window.scrollY > 24);
@@ -34,7 +37,11 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" onClick={() => setOpen(false)} className="flex items-center">
           <Image
-            src="/images/marca/logo-horizontal-branca.png"
+            src={
+              escuro
+                ? "/images/marca/logo-horizontal-branca.png"
+                : "/images/marca/logo-horizontal.png"
+            }
             alt="Deck Construtora e Incorporadora"
             width={180}
             height={64}
@@ -51,7 +58,11 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm transition-colors ${
-                  ativo ? "text-deck-accent" : "text-white/80 hover:text-white"
+                  ativo
+                    ? "text-deck-accent-strong"
+                    : escuro
+                      ? "text-white/80 hover:text-white"
+                      : "text-deck-ink/70 hover:text-deck-ink"
                 }`}
               >
                 {link.label}
@@ -80,7 +91,9 @@ export default function Header() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label="Abrir menu"
-          className="flex h-11 w-11 items-center justify-center rounded-md text-white lg:hidden"
+          className={`flex h-11 w-11 items-center justify-center rounded-md lg:hidden ${
+            escuro ? "text-white" : "text-deck-ink"
+          }`}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             {open ? (

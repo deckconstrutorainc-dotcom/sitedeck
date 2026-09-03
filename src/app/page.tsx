@@ -40,59 +40,65 @@ export default function Home() {
   return (
     <div className="bg-deck-bone">
       {/* HERO */}
-      <section className="relative flex min-h-screen items-end overflow-hidden bg-deck-ink">
-        <Image
-          src="/images/obras/sml/foto-09-full.webp"
-          alt="Obra executada pela Deck Construtora"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-deck-ink via-deck-ink/75 to-deck-ink/30" />
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-white">
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-32 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
+          <div className="relative z-10">
+            <Reveal>
+              <span className="eyebrow text-deck-navy">
+                Engenharia e construção civil · Vitória, ES
+              </span>
+            </Reveal>
 
-        <div className="relative mx-auto w-full max-w-7xl px-5 pb-20 pt-36 sm:px-8">
-          <Reveal>
-            <span className="eyebrow text-deck-accent">
-              Engenharia e construção civil · Vitória, ES
-            </span>
-          </Reveal>
+            <Reveal delay={0.1}>
+              <h1 className="display mt-6 max-w-xl text-[2.5rem] text-deck-ink sm:text-6xl lg:text-6xl">
+                Construímos com precisão técnica e mais de{" "}
+                <span className="text-deck-accent-strong">30 anos</span> de experiência
+              </h1>
+            </Reveal>
 
-          <Reveal delay={0.1}>
-            <h1 className="display mt-6 max-w-4xl text-[2.75rem] text-white sm:text-6xl lg:text-7xl">
-              Construímos com precisão técnica e mais de{" "}
-              <span className="text-deck-accent">30 anos</span> de experiência
-            </h1>
-          </Reveal>
+            <Reveal delay={0.2}>
+              <p className="mt-8 max-w-lg text-lg leading-relaxed text-deck-ink/60">
+                A Deck Construtora e Incorporadora entrega obras públicas e
+                privadas de alto desempenho, unindo gestão inteligente,
+                tecnologia e compromisso com a qualidade em cada etapa.
+              </p>
+            </Reveal>
 
-          <Reveal delay={0.2}>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/70">
-              A Deck Construtora e Incorporadora entrega obras públicas e
-              privadas de alto desempenho, unindo gestão inteligente,
-              tecnologia e compromisso com a qualidade em cada etapa.
-            </p>
-          </Reveal>
+            <Reveal delay={0.3}>
+              <div className="mt-12 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/portfolio"
+                  className="group flex items-center overflow-hidden rounded-md"
+                >
+                  <span className="eyebrow bg-deck-navy px-6 py-4 text-white transition-colors group-hover:bg-deck-navy-dark">
+                    Ver portfólio de obras
+                  </span>
+                  <span className="flex h-[3.25rem] w-12 items-center justify-center bg-deck-accent text-deck-ink transition-colors group-hover:bg-deck-accent-strong">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </Link>
+                <Link
+                  href="/contato"
+                  className="eyebrow rounded-md border border-deck-ink/15 px-6 py-4 text-deck-ink transition-colors hover:bg-deck-ink/5"
+                >
+                  Fale com a equipe
+                </Link>
+              </div>
+            </Reveal>
+          </div>
 
-          <Reveal delay={0.3}>
-            <div className="mt-12 flex flex-wrap items-center gap-4">
-              <Link
-                href="/portfolio"
-                className="group flex items-center overflow-hidden rounded-md"
-              >
-                <span className="eyebrow bg-deck-accent px-6 py-4 text-deck-ink transition-colors group-hover:bg-deck-accent-strong">
-                  Ver portfólio de obras
-                </span>
-                <span className="flex h-[3.25rem] w-12 items-center justify-center bg-deck-accent-strong text-deck-ink transition-colors group-hover:bg-deck-accent">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </Link>
-              <Link
-                href="/contato"
-                className="eyebrow rounded-md border border-white/25 px-6 py-4 text-white transition-colors hover:bg-white/10"
-              >
-                Fale com a equipe
-              </Link>
+          <Reveal delay={0.15} className="relative">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
+              <div className="absolute inset-x-6 inset-y-10 -z-10 rounded-full bg-deck-bone-soft blur-2xl" />
+              <Image
+                src="/images/marca/capa-hero-lg.webp"
+                alt="Empreendimento residencial entregue pela Deck Construtora"
+                fill
+                priority
+                className="object-contain object-bottom"
+              />
             </div>
           </Reveal>
         </div>
