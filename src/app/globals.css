@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1f2933;
+  --deck-navy: #1c4b63;
+  --deck-navy-dark: #123245;
+  --deck-slate: #8fa5b3;
+  --deck-graphite: #3b4a54;
+  --deck-mist: #f4f7f8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-deck-navy: var(--deck-navy);
+  --color-deck-navy-dark: var(--deck-navy-dark);
+  --color-deck-slate: var(--deck-slate);
+  --color-deck-graphite: var(--deck-graphite);
+  --color-deck-mist: var(--deck-mist);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
