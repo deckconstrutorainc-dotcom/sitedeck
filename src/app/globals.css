@@ -1,23 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1f2933;
+  --background: #eef2f0;
+  --foreground: #0e1a1f;
+
+  /* Escuro profundo (fundo das seções de impacto) */
+  --deck-ink: #0d1b21;
+  --deck-ink-soft: #12252d;
+
+  /* Destaque vibrante — ciano-elétrico derivado do azul da marca */
+  --deck-accent: #5fe6c4;
+  --deck-accent-strong: #2fd3a9;
+
+  /* Azuis da marca */
   --deck-navy: #1c4b63;
   --deck-navy-dark: #123245;
   --deck-slate: #8fa5b3;
-  --deck-graphite: #3b4a54;
-  --deck-mist: #f4f7f8;
+
+  /* Neutros claros */
+  --deck-bone: #eef2f0;
+  --deck-bone-soft: #f7faf9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-deck-ink: var(--deck-ink);
+  --color-deck-ink-soft: var(--deck-ink-soft);
+  --color-deck-accent: var(--deck-accent);
+  --color-deck-accent-strong: var(--deck-accent-strong);
   --color-deck-navy: var(--deck-navy);
   --color-deck-navy-dark: var(--deck-navy-dark);
   --color-deck-slate: var(--deck-slate);
-  --color-deck-graphite: var(--deck-graphite);
-  --color-deck-mist: var(--deck-mist);
+  --color-deck-bone: var(--deck-bone);
+  --color-deck-bone-soft: var(--deck-bone-soft);
   --font-sans: var(--font-inter);
 }
 
@@ -25,4 +41,29 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Label de seção: maiúsculas, tracking largo — assinatura do design de referência */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Títulos grandes e apertados */
+.display {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.03;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

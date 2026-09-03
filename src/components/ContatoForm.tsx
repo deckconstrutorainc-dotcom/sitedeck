@@ -17,12 +17,19 @@ export default function ContatoForm() {
     window.location.href = mailto;
   }
 
+  const campo =
+    "mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/25 transition-colors focus:border-deck-accent focus:outline-none";
+
   return (
-    <form onSubmit={enviar} className="rounded-2xl border border-black/5 p-8 shadow-sm">
-      <h2 className="text-xl font-semibold text-deck-graphite">Envie uma mensagem</h2>
-      <div className="mt-6 space-y-4">
+    <form onSubmit={enviar} className="rounded-2xl bg-deck-ink p-8 sm:p-10">
+      <span className="eyebrow text-deck-accent">Envie uma mensagem</span>
+      <h2 className="display mt-5 text-3xl text-white">
+        Solicite um orçamento
+      </h2>
+
+      <div className="mt-9 space-y-6">
         <div>
-          <label htmlFor="nome" className="text-sm font-medium text-deck-graphite">
+          <label htmlFor="nome" className="eyebrow text-white/40">
             Nome
           </label>
           <input
@@ -30,12 +37,14 @@ export default function ContatoForm() {
             required
             value={nome}
             onChange={(e) => setNome(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-black/10 px-4 py-2 text-sm focus:border-deck-navy focus:outline-none"
+            placeholder="Seu nome completo"
+            className={campo}
           />
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
+
+        <div className="grid gap-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="email" className="text-sm font-medium text-deck-graphite">
+            <label htmlFor="email" className="eyebrow text-white/40">
               E-mail
             </label>
             <input
@@ -44,23 +53,26 @@ export default function ContatoForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-black/10 px-4 py-2 text-sm focus:border-deck-navy focus:outline-none"
+              placeholder="seu@email.com"
+              className={campo}
             />
           </div>
           <div>
-            <label htmlFor="telefone" className="text-sm font-medium text-deck-graphite">
+            <label htmlFor="telefone" className="eyebrow text-white/40">
               Telefone
             </label>
             <input
               id="telefone"
               value={telefone}
               onChange={(e) => setTelefone(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-black/10 px-4 py-2 text-sm focus:border-deck-navy focus:outline-none"
+              placeholder="(27) 00000-0000"
+              className={campo}
             />
           </div>
         </div>
+
         <div>
-          <label htmlFor="mensagem" className="text-sm font-medium text-deck-graphite">
+          <label htmlFor="mensagem" className="eyebrow text-white/40">
             Mensagem
           </label>
           <textarea
@@ -69,14 +81,27 @@ export default function ContatoForm() {
             rows={5}
             value={mensagem}
             onChange={(e) => setMensagem(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-black/10 px-4 py-2 text-sm focus:border-deck-navy focus:outline-none"
+            placeholder="Conte-nos sobre o seu projeto"
+            className={campo}
           />
         </div>
+
         <button
           type="submit"
-          className="w-full rounded-full bg-deck-navy px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-deck-navy-dark"
+          className="group flex w-full items-center justify-center gap-3 rounded-lg bg-deck-accent px-6 py-4 transition-colors hover:bg-deck-accent-strong"
         >
-          Enviar mensagem
+          <span className="eyebrow text-deck-ink">Enviar mensagem</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            className="text-deck-ink transition-transform group-hover:translate-x-1"
+          >
+            <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
       </div>
     </form>

@@ -2,155 +2,261 @@ import Image from "next/image";
 import Link from "next/link";
 import CardObra from "@/components/CardObra";
 import CtaContato from "@/components/CtaContato";
+import Reveal from "@/components/Reveal";
+import Eyebrow from "@/components/Eyebrow";
+import Contador from "@/components/Contador";
+import Trajetoria from "@/components/Trajetoria";
 import { obras } from "@/lib/obras";
 
-const VALORES = [
-  { titulo: "Excelência", texto: "Superar padrões de qualidade e eficiência em todas as etapas do projeto." },
-  { titulo: "Inovação", texto: "Tecnologias construtivas, metodologias BIM e processos digitais." },
-  { titulo: "Comprometimento", texto: "Ética, responsabilidade e foco em honrar prazos e contratos." },
-  { titulo: "Segurança", texto: "Ambientes de trabalho seguros e conformes às normas técnicas." },
+const PILARES = [
+  {
+    titulo: "Excelência",
+    texto: "Superamos padrões de qualidade e eficiência em todas as etapas do projeto.",
+  },
+  {
+    titulo: "Inovação",
+    texto: "Tecnologias construtivas, metodologias BIM e processos digitais aplicados à obra.",
+  },
+  {
+    titulo: "Segurança",
+    texto: "Ambientes de trabalho seguros e conformes às normas técnicas vigentes.",
+  },
+  {
+    titulo: "Sustentabilidade",
+    texto: "Práticas ESG, redução de impactos e otimização de recursos naturais.",
+  },
 ];
 
-const ESTATISTICAS = [
-  { valor: "30+", label: "anos de mercado" },
-  { valor: "10+", label: "obras em portfólio" },
-  { valor: "100%", label: "compromisso com prazos" },
-  { valor: "ES", label: "atuação em todo o estado" },
+const CAPACIDADES = [
+  "Construção de edificações públicas e privadas",
+  "Reformas, ampliações e retrofit",
+  "Gestão e fiscalização de obras",
+  "Manutenção predial, pintura e impermeabilização",
 ];
 
-const destaque = obras.slice(0, 3);
+const destaque = obras.slice(0, 4);
 
 export default function Home() {
   return (
-    <div>
-      <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-deck-navy-dark text-white">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/obras/parque-tecnologico/foto-06-full.webp"
-            alt="Obra Deck Construtora"
-            fill
-            priority
-            className="object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-deck-navy-dark via-deck-navy-dark/70 to-deck-navy-dark/40" />
-        </div>
+    <div className="bg-deck-bone">
+      {/* HERO */}
+      <section className="relative flex min-h-screen items-end overflow-hidden bg-deck-ink">
+        <Image
+          src="/images/obras/sml/foto-09-full.webp"
+          alt="Obra executada pela Deck Construtora"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-deck-ink via-deck-ink/75 to-deck-ink/30" />
 
-        <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
-          <span className="text-sm font-semibold uppercase tracking-widest text-deck-slate">
-            Engenharia e construção civil
-          </span>
-          <h1 className="mt-4 max-w-2xl text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
-            Construindo com precisão, tecnologia e mais de 30 anos de experiência
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-white/80">
-            A Deck Construtora e Incorporadora entrega obras públicas e
-            privadas de alto desempenho, unindo gestão inteligente e
-            compromisso com a qualidade em cada etapa.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/portfolio"
-              className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-deck-navy transition-colors hover:bg-deck-mist"
-            >
-              Ver portfólio de obras
-            </Link>
-            <Link
-              href="/contato"
-              className="rounded-full border border-white/40 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Fale conosco
-            </Link>
-          </div>
+        <div className="relative mx-auto w-full max-w-7xl px-5 pb-20 pt-36 sm:px-8">
+          <Reveal>
+            <span className="eyebrow text-deck-accent">
+              Engenharia e construção civil · Vitória, ES
+            </span>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <h1 className="display mt-6 max-w-4xl text-[2.75rem] text-white sm:text-6xl lg:text-7xl">
+              Construímos com precisão técnica e mais de{" "}
+              <span className="text-deck-accent">30 anos</span> de experiência
+            </h1>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/70">
+              A Deck Construtora e Incorporadora entrega obras públicas e
+              privadas de alto desempenho, unindo gestão inteligente,
+              tecnologia e compromisso com a qualidade em cada etapa.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <div className="mt-12 flex flex-wrap items-center gap-4">
+              <Link
+                href="/portfolio"
+                className="group flex items-center overflow-hidden rounded-md"
+              >
+                <span className="eyebrow bg-deck-accent px-6 py-4 text-deck-ink transition-colors group-hover:bg-deck-accent-strong">
+                  Ver portfólio de obras
+                </span>
+                <span className="flex h-[3.25rem] w-12 items-center justify-center bg-deck-accent-strong text-deck-ink transition-colors group-hover:bg-deck-accent">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </Link>
+              <Link
+                href="/contato"
+                className="eyebrow rounded-md border border-white/25 px-6 py-4 text-white transition-colors hover:bg-white/10"
+              >
+                Fale com a equipe
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="border-b border-black/5 bg-deck-mist">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-12 sm:px-6 md:grid-cols-4">
-          {ESTATISTICAS.map((e) => (
-            <div key={e.label} className="text-center">
-              <div className="text-3xl font-bold text-deck-navy sm:text-4xl">{e.valor}</div>
-              <div className="mt-1 text-sm text-deck-graphite/70">{e.label}</div>
-            </div>
+      {/* ESTATÍSTICAS */}
+      <section className="border-b border-deck-navy/10 bg-deck-bone-soft">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 py-16 sm:px-8 lg:grid-cols-4">
+          {[
+            { valor: 30, sufixo: "+", label: "anos de mercado" },
+            { valor: obras.length, sufixo: "", label: "obras no portfólio" },
+            { valor: 100, sufixo: "%", label: "foco em prazo e qualidade" },
+            { valor: 5, sufixo: "+", label: "segmentos atendidos" },
+          ].map((e, i) => (
+            <Reveal key={e.label} delay={i * 0.08}>
+              <div>
+                <div className="display text-5xl text-deck-navy sm:text-6xl">
+                  <Contador valor={e.valor} sufixo={e.sufixo} />
+                </div>
+                <div className="mt-3 text-sm leading-snug text-deck-ink/60">
+                  {e.label}
+                </div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center">
-          <div>
-            <span className="text-sm font-semibold uppercase tracking-wide text-deck-navy">
-              Quem somos
-            </span>
-            <h2 className="mt-2 text-3xl font-bold text-deck-graphite">
-              Mais de 30 anos entregando obras de alto desempenho
+      {/* QUEM SOMOS + MOSAICO */}
+      <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+        <Reveal>
+          <Eyebrow>Quem somos</Eyebrow>
+        </Reveal>
+
+        <div className="mt-10 grid gap-16 lg:grid-cols-2 lg:items-start">
+          <Reveal>
+            <h2 className="display max-w-xl text-4xl text-deck-ink sm:text-5xl">
+              Soluções completas em engenharia e edificações
             </h2>
-            <p className="mt-4 leading-relaxed text-deck-graphite/80">
-              A Deck Construtora e Incorporadora LTDA atua há mais de 30 anos
-              no mercado da construção civil, oferecendo soluções completas em
-              engenharia e edificações públicas e privadas. Combinamos
-              experiência, tecnologia e gestão inteligente para entregar obras
-              de alto desempenho — desde reformas e ampliações até
-              empreendimentos de grande porte.
-            </p>
-            <Link
-              href="/sobre"
-              className="mt-6 inline-block text-sm font-semibold text-deck-navy hover:underline"
-            >
-              Conheça nossa história →
-            </Link>
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-            <Image
-              src="/images/obras/cie/foto-03-medium.webp"
-              alt="Obra CIE - Deck Construtora"
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="space-y-5 text-deck-ink/70">
+              <p className="leading-relaxed">
+                A Deck Construtora e Incorporadora LTDA atua há mais de 30 anos
+                no mercado da construção civil, oferecendo soluções completas em
+                engenharia e edificações públicas e privadas. Combinamos
+                experiência, tecnologia e gestão inteligente para entregar obras
+                de alto desempenho — desde reformas e ampliações até
+                empreendimentos de grande porte.
+              </p>
+              <ul className="space-y-3 pt-2">
+                {CAPACIDADES.map((c) => (
+                  <li key={c} className="flex gap-3 text-sm text-deck-ink/80">
+                    <span className="mt-[0.45rem] h-1.5 w-1.5 flex-none rounded-full bg-deck-accent-strong" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/sobre"
+                className="eyebrow inline-flex items-center gap-2 pt-4 text-deck-navy hover:gap-3 transition-all"
+              >
+                Conheça nossa história
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* mosaico de imagens */}
+        <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[
+            "cie/foto-01",
+            "cond-vista-do-mar/foto-02",
+            "parque-tecnologico/foto-01",
+            "sml/foto-09",
+          ].map((img, i) => (
+            <Reveal key={img} delay={i * 0.08}>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+                <Image
+                  src={`/images/obras/${img}-medium.webp`}
+                  alt="Obra Deck Construtora"
+                  fill
+                  sizes="(min-width: 640px) 25vw, 50vw"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
-      <section className="bg-deck-mist">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <div className="text-center">
-            <span className="text-sm font-semibold uppercase tracking-wide text-deck-navy">
-              Nossos valores
-            </span>
-            <h2 className="mt-2 text-3xl font-bold text-deck-graphite">
+      {/* PILARES — seção escura */}
+      <section className="bg-deck-ink py-24 text-white">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <Reveal>
+            <Eyebrow tom="claro">Nossos pilares</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="display mt-8 max-w-2xl text-4xl sm:text-5xl">
               O que guia cada obra que entregamos
             </h2>
-          </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
-            {VALORES.map((v) => (
-              <div key={v.titulo} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="font-semibold text-deck-navy">{v.titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-deck-graphite/70">
-                  {v.texto}
-                </p>
-              </div>
+          </Reveal>
+
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {PILARES.map((p, i) => (
+              <Reveal key={p.titulo} delay={i * 0.08}>
+                <div
+                  className={`h-full rounded-xl p-7 transition-transform duration-500 hover:-translate-y-1 ${
+                    i === 1
+                      ? "bg-deck-accent text-deck-ink"
+                      : "bg-deck-ink-soft text-white"
+                  }`}
+                >
+                  <h3 className="text-xl font-semibold">{p.titulo}</h3>
+                  <p
+                    className={`mt-3 text-sm leading-relaxed ${
+                      i === 1 ? "text-deck-ink/70" : "text-white/60"
+                    }`}
+                  >
+                    {p.texto}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <span className="text-sm font-semibold uppercase tracking-wide text-deck-navy">
-              Portfólio
-            </span>
-            <h2 className="mt-2 text-3xl font-bold text-deck-graphite">
+      {/* TRAJETÓRIA (timeline interativa) */}
+      <Trajetoria />
+
+      {/* PORTFÓLIO */}
+      <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+        <Reveal>
+          <Eyebrow>Portfólio</Eyebrow>
+        </Reveal>
+        <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
+          <Reveal>
+            <h2 className="display max-w-xl text-4xl text-deck-ink sm:text-5xl">
               Obras em destaque
             </h2>
-          </div>
-          <Link href="/portfolio" className="text-sm font-semibold text-deck-navy hover:underline">
-            Ver todas as obras →
-          </Link>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Link
+              href="/portfolio"
+              className="eyebrow inline-flex items-center gap-2 text-deck-navy transition-all hover:gap-3"
+            >
+              Ver todas as obras
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </Reveal>
         </div>
-        <div className="mt-10 grid gap-8 md:grid-cols-3">
-          {destaque.map((obra) => (
-            <CardObra key={obra.slug} obra={obra} />
+
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {destaque.map((obra, i) => (
+            <Reveal key={obra.slug} delay={i * 0.08}>
+              <CardObra obra={obra} />
+            </Reveal>
           ))}
         </div>
       </section>

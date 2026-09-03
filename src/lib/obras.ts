@@ -7,10 +7,23 @@ export type Obra = {
   local: string;
   ano: string;
   resumo: string;
+  /** Foto usada como capa em cards e hero — escolhida manualmente por obra. */
+  capa: string;
   fotos: number;
 };
 
 export const obras: Obra[] = [
+  {
+    slug: "sml",
+    titulo: "SML — Polícia Científica",
+    categoria: "Edificação pública",
+    local: "Espírito Santo",
+    ano: "2025",
+    resumo:
+      "Obra do Serviço de Medicina Legal e Criminalística, contemplando fachada, salas técnicas, laboratórios e urbanização externa, atendendo às exigências do órgão público.",
+    capa: "foto-11",
+    fotos: manifest["sml"]?.length ?? 0,
+  },
   {
     slug: "parque-tecnologico",
     titulo: "Parque Tecnológico",
@@ -18,17 +31,19 @@ export const obras: Obra[] = [
     local: "Vitória - ES",
     ano: "2020",
     resumo:
-      "Acompanhamento completo da obra, da estrutura ao acabamento, com controle rigoroso de cronograma e qualidade.",
+      "Edifício institucional executado da estrutura ao acabamento, com brises de fachada, geração solar fotovoltaica e paisagismo.",
+    capa: "foto-09",
     fotos: manifest["parque-tecnologico"]?.length ?? 0,
   },
   {
     slug: "cie",
-    titulo: "CIE",
-    categoria: "Edificação institucional",
-    local: "Vitória - ES",
+    titulo: "CIE — Estação Cidadania-Esporte",
+    categoria: "Equipamento esportivo",
+    local: "Serra - ES",
     ano: "2020",
     resumo:
-      "Execução de obra institucional com registro em vídeo das etapas de acabamento e entrega.",
+      "Centro de Iniciação ao Esporte com ginásio poliesportivo coberto, quadra oficial, vestiários e áreas de apoio.",
+    capa: "foto-01",
     fotos: manifest["cie"]?.length ?? 0,
   },
   {
@@ -38,7 +53,8 @@ export const obras: Obra[] = [
     local: "Cariacica - ES",
     ano: "2021",
     resumo:
-      "Instalação de escada rolante e serviços de pintura em torre, arquibancada e piso do estádio.",
+      "Instalação de escada rolante e serviços de pintura em torre, arquibancada e pisos, executados em estádio em operação.",
+    capa: "foto-08",
     fotos: manifest["estadio-kleber-andrade"]?.length ?? 0,
   },
   {
@@ -48,17 +64,20 @@ export const obras: Obra[] = [
     local: "Vitória - ES",
     ano: "2023",
     resumo:
-      "Obra de reforma e ampliação em unidade escolar, com foco em segurança e continuidade das atividades.",
+      "Reforma e ampliação de unidade escolar, incluindo cobertura metálica de quadra, fechamentos e revitalização de fachada.",
+    capa: "foto-02",
     fotos: manifest["benicio-goncalves"]?.length ?? 0,
   },
   {
-    slug: "escola-gomes-cardim",
-    titulo: "Escola Gomes Cardim",
+    slug: "vale-encantado",
+    titulo: "Escola Vale Encantado",
     categoria: "Edificação escolar",
-    local: "Vitória - ES",
-    ano: "2021",
-    resumo: "Intervenção construtiva em unidade escolar, atendendo a padrões técnicos e prazos definidos.",
-    fotos: manifest["escola-gomes-cardim"]?.length ?? 0,
+    local: "Espírito Santo",
+    ano: "2023",
+    resumo:
+      "Unidade escolar entregue com salas de aula, cozinha industrial, biblioteca, quadra coberta e área de convivência.",
+    capa: "foto-13",
+    fotos: manifest["vale-encantado"]?.length ?? 0,
   },
   {
     slug: "cat-bombeiros",
@@ -66,17 +85,21 @@ export const obras: Obra[] = [
     categoria: "Edificação pública",
     local: "Espírito Santo",
     ano: "2021",
-    resumo: "Obra executada para o Corpo de Bombeiros, com exigências técnicas e normativas específicas.",
+    resumo:
+      "Obra executada para o Corpo de Bombeiros, da armação e concretagem de lajes aos acabamentos internos e fachada.",
+    capa: "foto-03",
     fotos: manifest["cat-bombeiros"]?.length ?? 0,
   },
   {
-    slug: "vale-encantado",
-    titulo: "Vale Encantado",
-    categoria: "Empreendimento residencial",
-    local: "Espírito Santo",
-    ano: "2023",
-    resumo: "Acompanhamento fotográfico da evolução construtiva do empreendimento residencial.",
-    fotos: manifest["vale-encantado"]?.length ?? 0,
+    slug: "escola-gomes-cardim",
+    titulo: "Escola Gomes Cardim",
+    categoria: "Acessibilidade e reforma",
+    local: "Vitória - ES",
+    ano: "2021",
+    resumo:
+      "Intervenção de acessibilidade em unidade escolar, com implantação de elevador, escada metálica e rampas com guarda-corpo.",
+    capa: "foto-04",
+    fotos: manifest["escola-gomes-cardim"]?.length ?? 0,
   },
   {
     slug: "cond-morada-do-vale",
@@ -84,26 +107,21 @@ export const obras: Obra[] = [
     categoria: "Empreendimento residencial",
     local: "Espírito Santo",
     ano: "2021",
-    resumo: "Obra em condomínio residencial, com gestão de cronograma e qualidade construtiva.",
+    resumo:
+      "Condomínio residencial multifamiliar, com blocos de apartamentos, reservatórios, piscina e áreas comuns.",
+    capa: "foto-02",
     fotos: manifest["cond-morada-do-vale"]?.length ?? 0,
   },
   {
     slug: "cond-vista-do-mar",
     titulo: "Cond. Vista do Mar",
-    categoria: "Empreendimento residencial",
+    categoria: "Incorporação residencial",
     local: "Espírito Santo",
     ano: "2021",
-    resumo: "Execução de obra residencial em condomínio, com acompanhamento técnico das etapas construtivas.",
+    resumo:
+      "Empreendimento residencial da Deck Incorporadora, com apartamentos de dois quartos, área gourmet e piscina.",
+    capa: "foto-14",
     fotos: manifest["cond-vista-do-mar"]?.length ?? 0,
-  },
-  {
-    slug: "sml",
-    titulo: "SML",
-    categoria: "Edificação comercial",
-    local: "Espírito Santo",
-    ano: "2025",
-    resumo: "Uma das obras mais recentes da Deck, com registro fotográfico atualizado das etapas de execução.",
-    fotos: manifest["sml"]?.length ?? 0,
   },
 ];
 

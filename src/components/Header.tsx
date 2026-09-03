@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
-  { href: "/", label: "Início" },
   { href: "/sobre", label: "Sobre" },
   { href: "/servicos", label: "Serviços" },
   { href: "/portfolio", label: "Portfólio" },
@@ -16,52 +15,72 @@ const LINKS = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [rolou, setRolou] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const onScroll = () => setRolou(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        rolou || open ? "bg-deck-ink/95 backdrop-blur-md" : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+        <Link href="/" onClick={() => setOpen(false)} className="flex items-center">
           <Image
-            src="/images/marca/logo-horizontal.webp"
+            src="/images/marca/logo-horizontal-branca.png"
             alt="Deck Construtora e Incorporadora"
             width={180}
             height={64}
             priority
-            className="h-12 w-auto"
+            className="h-10 w-auto"
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {LINKS.map((link) => {
-            const active = pathname === link.href;
+            const ativo = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  active
-                    ? "text-deck-navy"
-                    : "text-deck-graphite hover:text-deck-navy"
+                className={`text-sm transition-colors ${
+                  ativo ? "text-deck-accent" : "text-white/80 hover:text-white"
                 }`}
               >
                 {link.label}
               </Link>
             );
           })}
+        </nav>
+
+        <div className="hidden items-center lg:flex">
           <Link
             href="/contato"
-            className="rounded-full bg-deck-navy px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-deck-navy-dark"
+            className="group flex items-center overflow-hidden rounded-md"
           >
-            Fale conosco
+            <span className="flex h-11 w-11 items-center justify-center bg-deck-accent-strong text-deck-ink transition-colors group-hover:bg-deck-accent">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h13M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <span className="eyebrow bg-deck-accent px-5 py-[0.95rem] text-deck-ink transition-colors group-hover:bg-deck-accent-strong">
+              Solicite um orçamento
+            </span>
           </Link>
-        </nav>
+        </div>
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-md text-deck-graphite md:hidden"
-          aria-label="Abrir menu"
           onClick={() => setOpen((v) => !v)}
+          aria-label="Abrir menu"
+          className="flex h-11 w-11 items-center justify-center rounded-md text-white lg:hidden"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             {open ? (
@@ -74,20 +93,27 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-black/5 bg-white px-4 py-4 md:hidden">
-          <ul className="flex flex-col gap-1">
+        <nav className="border-t border-white/10 bg-deck-ink px-5 pb-6 pt-2 lg:hidden">
+          <ul className="flex flex-col">
             {LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-md px-3 py-2 text-sm font-medium text-deck-graphite hover:bg-deck-mist hover:text-deck-navy"
+                  className="block border-b border-white/5 py-3 text-sm text-white/80 hover:text-deck-accent"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
+          <Link
+            href="/contato"
+            onClick={() => setOpen(false)}
+            className="eyebrow mt-5 block rounded-md bg-deck-accent px-5 py-3 text-center text-deck-ink"
+          >
+            Solicite um orçamento
+          </Link>
         </nav>
       )}
     </header>
