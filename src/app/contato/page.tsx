@@ -68,7 +68,7 @@ export default function ContatoPage() {
                 },
                 {
                   label: "Diretor Comercial",
-                  conteudo: <>Altamiro Feitosa — (27) 8134-5555</>,
+                  conteudo: <>Bruno Feitosa Tedesco — (27) 8134-5555</>,
                 },
               ].map((item, i) => (
                 <Reveal key={item.label} delay={i * 0.06}>
