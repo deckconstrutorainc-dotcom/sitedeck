@@ -40,15 +40,19 @@ export default function Footer() {
             <h3 className="eyebrow text-white/40">Contato</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/70">
               <li className="leading-relaxed">
-                Rua Capitão Domingos, 80 — Sala 514
+                Rua Cinco, 78
                 <br />
-                Santa Lúcia, Vitória - ES
+                Jardim Bela Vista, Serra - ES
                 <br />
-                CEP 29056-915
+                CEP 29177-358
               </li>
               <li>
                 <a href="tel:+552732914003" className="hover:text-deck-accent">
                   (27) 3291-4003
+                </a>
+                {" / "}
+                <a href="tel:+552732917978" className="hover:text-deck-accent">
+                  (27) 3291-7978
                 </a>
               </li>
               <li>

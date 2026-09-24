@@ -7,7 +7,7 @@ import Eyebrow from "@/components/Eyebrow";
 export const metadata: Metadata = {
   title: "Contato | Deck Construtora e Incorporadora",
   description:
-    "Entre em contato com a Deck Construtora e Incorporadora em Vitória, ES. Telefone (27) 3291-4003.",
+    "Entre em contato com a Deck Construtora e Incorporadora em Serra, ES. Telefone (27) 3291-4003.",
 };
 
 export default function ContatoPage() {
@@ -33,20 +33,26 @@ export default function ContatoPage() {
                   label: "Endereço",
                   conteudo: (
                     <>
-                      Rua Capitão Domingos, 80 — Sala 514
+                      Rua Cinco, 78
                       <br />
-                      Santa Lúcia, Vitória - ES
+                      Jardim Bela Vista, Serra - ES
                       <br />
-                      CEP 29056-915
+                      CEP 29177-358
                     </>
                   ),
                 },
                 {
                   label: "Telefone / WhatsApp",
                   conteudo: (
-                    <a href="tel:+552732914003" className="hover:text-deck-navy">
-                      (27) 3291-4003
-                    </a>
+                    <>
+                      <a href="tel:+552732914003" className="hover:text-deck-navy">
+                        (27) 3291-4003
+                      </a>
+                      {" / "}
+                      <a href="tel:+552732917978" className="hover:text-deck-navy">
+                        (27) 3291-7978
+                      </a>
+                    </>
                   ),
                 },
                 {
@@ -80,7 +86,7 @@ export default function ContatoPage() {
               <div className="mt-12 overflow-hidden rounded-xl">
                 <iframe
                   title="Localização da Deck Construtora"
-                  src="https://www.google.com/maps?q=Rua+Capit%C3%A3o+Domingos,+80,+Santa+L%C3%BAcia,+Vit%C3%B3ria+-+ES,+29056-915&output=embed"
+                  src="https://www.google.com/maps?q=Rua+Cinco,+78,+Jardim+Bela+Vista,+Serra+-+ES,+29177-358&output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
