@@ -35,7 +35,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link href="/" onClick={() => setOpen(false)} className="flex items-center">
+        <Link prefetch={false} href="/" onClick={() => setOpen(false)} className="flex items-center">
           <Image
             src={
               escuro
@@ -55,6 +55,7 @@ export default function Header() {
             const ativo = pathname === link.href;
             return (
               <Link
+                  prefetch={false}
                 key={link.href}
                 href={link.href}
                 className={`text-sm transition-colors ${
@@ -73,6 +74,7 @@ export default function Header() {
 
         <div className="hidden items-center lg:flex">
           <Link
+                  prefetch={false}
             href="/contato"
             className="group flex items-center overflow-hidden rounded-md"
           >
@@ -111,6 +113,7 @@ export default function Header() {
             {LINKS.map((link) => (
               <li key={link.href}>
                 <Link
+                  prefetch={false}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="block border-b border-white/5 py-3 text-sm text-white/80 hover:text-deck-accent"
@@ -121,6 +124,7 @@ export default function Header() {
             ))}
           </ul>
           <Link
+                  prefetch={false}
             href="/contato"
             onClick={() => setOpen(false)}
             className="eyebrow mt-5 block rounded-md bg-deck-accent px-5 py-3 text-center text-deck-ink"

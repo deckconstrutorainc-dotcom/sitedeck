@@ -23,17 +23,17 @@ export default function Footer() {
           <div>
             <h3 className="eyebrow text-white/40">Empresa</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/70">
-              <li><Link href="/sobre" className="hover:text-deck-accent">Sobre a Deck</Link></li>
-              <li><Link href="/servicos" className="hover:text-deck-accent">Serviços</Link></li>
-              <li><Link href="/equipe" className="hover:text-deck-accent">Equipe</Link></li>
+              <li><Link prefetch={false} href="/sobre" className="hover:text-deck-accent">Sobre a Deck</Link></li>
+              <li><Link prefetch={false} href="/servicos" className="hover:text-deck-accent">Serviços</Link></li>
+              <li><Link prefetch={false} href="/equipe" className="hover:text-deck-accent">Equipe</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="eyebrow text-white/40">Obras</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/70">
-              <li><Link href="/portfolio" className="hover:text-deck-accent">Portfólio completo</Link></li>
-              <li><Link href="/contato" className="hover:text-deck-accent">Solicite um orçamento</Link></li>
+              <li><Link prefetch={false} href="/portfolio" className="hover:text-deck-accent">Portfólio completo</Link></li>
+              <li><Link prefetch={false} href="/contato" className="hover:text-deck-accent">Solicite um orçamento</Link></li>
             </ul>
           </div>
 

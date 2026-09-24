@@ -19,6 +19,7 @@ export default function CtaContato() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
+                  prefetch={false}
               href="/contato"
               className="group flex items-center overflow-hidden rounded-md"
             >

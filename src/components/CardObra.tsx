@@ -5,6 +5,7 @@ import type { Obra } from "@/lib/obras";
 export default function CardObra({ obra }: { obra: Obra }) {
   return (
     <Link
+                  prefetch={false}
       href={`/portfolio/${obra.slug}`}
       className="group relative block overflow-hidden rounded-xl bg-deck-ink"
     >

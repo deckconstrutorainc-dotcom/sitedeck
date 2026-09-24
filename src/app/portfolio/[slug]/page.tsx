@@ -55,6 +55,7 @@ export default async function ObraPage({
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-36 sm:px-8">
           <Reveal>
             <Link
+                  prefetch={false}
               href="/portfolio"
               className="eyebrow inline-flex items-center gap-2 text-white/60 transition-colors hover:text-deck-accent"
             >
@@ -153,6 +154,7 @@ export default async function ObraPage({
           {outras.map((o, i) => (
             <Reveal key={o.slug} delay={i * 0.08}>
               <Link
+                  prefetch={false}
                 href={`/portfolio/${o.slug}`}
                 className="group block overflow-hidden rounded-xl bg-deck-ink"
               >

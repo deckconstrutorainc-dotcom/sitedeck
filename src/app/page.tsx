@@ -67,6 +67,7 @@ export default function Home() {
             <Reveal delay={0.3}>
               <div className="mt-12 flex flex-wrap items-center gap-4">
                 <Link
+                  prefetch={false}
                   href="/portfolio"
                   className="group flex items-center overflow-hidden rounded-md"
                 >
@@ -80,6 +81,7 @@ export default function Home() {
                   </span>
                 </Link>
                 <Link
+                  prefetch={false}
                   href="/contato"
                   className="eyebrow rounded-md border border-deck-ink/15 px-6 py-4 text-deck-ink transition-colors hover:bg-deck-ink/5"
                 >
@@ -159,6 +161,7 @@ export default function Home() {
                 ))}
               </ul>
               <Link
+                  prefetch={false}
                 href="/sobre"
                 className="eyebrow inline-flex items-center gap-2 pt-4 text-deck-navy hover:gap-3 transition-all"
               >
@@ -247,6 +250,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <Link
+                  prefetch={false}
               href="/portfolio"
               className="eyebrow inline-flex items-center gap-2 text-deck-navy transition-all hover:gap-3"
             >
