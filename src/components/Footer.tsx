@@ -25,7 +25,6 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-white/70">
               <li><Link prefetch={false} href="/sobre" className="hover:text-deck-accent">Sobre a Deck</Link></li>
               <li><Link prefetch={false} href="/servicos" className="hover:text-deck-accent">Serviços</Link></li>
-              <li><Link prefetch={false} href="/equipe" className="hover:text-deck-accent">Equipe</Link></li>
             </ul>
           </div>
 
