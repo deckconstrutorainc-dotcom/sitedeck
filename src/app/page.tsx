@@ -111,7 +111,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 py-16 sm:px-8 lg:grid-cols-4">
           {[
             { valor: 30, sufixo: "+", label: "anos de mercado" },
-            { valor: obras.length, sufixo: "", label: "obras no portfólio" },
+            { valor: 100, sufixo: "+", label: "obras executadas" },
             { valor: 100, sufixo: "%", label: "foco em prazo e qualidade" },
             { valor: 5, sufixo: "+", label: "segmentos atendidos" },
           ].map((e, i) => (
