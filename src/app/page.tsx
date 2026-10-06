@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Eyebrow from "@/components/Eyebrow";
 import Contador from "@/components/Contador";
 import Trajetoria from "@/components/Trajetoria";
+import NossaEstrutura from "@/components/NossaEstrutura";
 import { obras } from "@/lib/obras";
 
 const PILARES = [
@@ -196,6 +197,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* NOSSA ESTRUTURA */}
+      <NossaEstrutura />
 
       {/* PILARES — seção escura */}
       <section className="bg-deck-ink py-24 text-white">
