@@ -19,6 +19,24 @@
     "quadro-eletrico",
     "subestacao"
   ],
+  "obra-maria-olinda": [
+    "capa",
+    "implantacao-aerea",
+    "bloco-escada",
+    "bloco-fachada",
+    "bloco-lateral",
+    "bloco-acesso",
+    "quadra",
+    "quadra-estrutura",
+    "quadra-cobertura",
+    "quadra-arquibancada",
+    "quadra-fechamento",
+    "mini-quadras",
+    "mini-quadras-quadra",
+    "patio-pergolados",
+    "patio-quadra",
+    "patio-amplo"
+  ],
   "benicio-goncalves": [
     "foto-01",
     "foto-02",

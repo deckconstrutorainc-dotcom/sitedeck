@@ -25,6 +25,17 @@ export const obras: Obra[] = [
     fotos: manifest["obra-judith"]?.length ?? 0,
   },
   {
+    slug: "obra-maria-olinda",
+    titulo: "Obra Maria Olinda",
+    categoria: "Edificação escolar",
+    local: "Serra - ES",
+    ano: "2023",
+    resumo:
+      "Reforma e ampliação de unidade escolar estadual, com nova cobertura metálica do bloco escolar, conclusão da quadra coberta e das mini-quadras de vôlei e urbanização do entorno.",
+    capa: "capa",
+    fotos: manifest["obra-maria-olinda"]?.length ?? 0,
+  },
+  {
     slug: "sml",
     titulo: "SML — Polícia Científica",
     categoria: "Edificação pública",

@@ -9,8 +9,9 @@ import Eyebrow from "@/components/Eyebrow";
 import { obras, getObraBySlug, getObraFotos, temVideo } from "@/lib/obras";
 
 export function generateStaticParams() {
-  // "obra-judith" tem página dedicada em app/portfolio/obra-judith/page.tsx
-  return obras.filter((o) => o.slug !== "obra-judith").map((o) => ({ slug: o.slug }));
+  // Estas obras têm página dedicada em app/portfolio/<slug>/page.tsx
+  const dedicadas = ["obra-judith", "obra-maria-olinda"];
+  return obras.filter((o) => !dedicadas.includes(o.slug)).map((o) => ({ slug: o.slug }));
 }
 
 export async function generateMetadata({
