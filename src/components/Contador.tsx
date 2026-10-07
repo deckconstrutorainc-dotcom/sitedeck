@@ -1,6 +1,6 @@
 "use client";
 
-import { animate, useInView, useReducedMotion } from "framer-motion";
+import { animate, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export default function Contador({
@@ -13,19 +13,36 @@ export default function Contador({
   prefixo?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const emVista = useInView(ref, { once: true, margin: "-60px" });
   const reduce = useReducedMotion();
   const [atual, setAtual] = useState(reduce ? valor : 0);
 
+  // IntersectionObserver nativo: o useInView do framer-motion falha em telas
+  // estreitas com React 19 e deixava o número parado em 0.
   useEffect(() => {
-    if (!emVista || reduce) return;
-    const controls = animate(0, valor, {
-      duration: 1.4,
-      ease: [0.22, 1, 0.36, 1],
-      onUpdate: (v) => setAtual(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [emVista, valor, reduce]);
+    const el = ref.current;
+    if (!el || reduce) {
+      setAtual(valor);
+      return;
+    }
+    let controls: ReturnType<typeof animate> | undefined;
+    const obs = new IntersectionObserver(
+      ([entrada]) => {
+        if (!entrada.isIntersecting) return;
+        obs.disconnect();
+        controls = animate(0, valor, {
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+          onUpdate: (v) => setAtual(Math.round(v)),
+        });
+      },
+      { threshold: 0.1 },
+    );
+    obs.observe(el);
+    return () => {
+      obs.disconnect();
+      controls?.stop();
+    };
+  }, [valor, reduce]);
 
   return (
     <span ref={ref}>

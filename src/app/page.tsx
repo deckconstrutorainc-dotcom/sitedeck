@@ -110,16 +110,17 @@ export default function Home() {
       {/* ESTATÍSTICAS */}
       <section className="border-b border-deck-navy/10 bg-deck-bone-soft">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 py-16 sm:px-8 lg:grid-cols-4">
+          {/* Levantamento de obras da Deck, 2005–2026 (arredondado para baixo) */}
           {[
-            { valor: 30, sufixo: "+", label: "anos de mercado" },
-            { valor: 100, sufixo: "+", label: "obras executadas" },
-            { valor: 100, sufixo: "%", label: "foco em prazo e qualidade" },
-            { valor: 5, sufixo: "+", label: "segmentos atendidos" },
+            { valor: 177, prefixo: "", sufixo: "", label: "obras e serviços executados desde 2005" },
+            { valor: 266, prefixo: "R$ ", sufixo: " mi", label: "em obras e serviços executados" },
+            { valor: 106, prefixo: "", sufixo: " mil m²", label: "de área construída e reformada" },
+            { valor: 108, prefixo: "", sufixo: " mil m²", label: "de área atendida em manutenção" },
           ].map((e, i) => (
             <Reveal key={e.label} delay={i * 0.08}>
               <div>
-                <div className="display text-5xl text-deck-navy sm:text-6xl">
-                  <Contador valor={e.valor} sufixo={e.sufixo} />
+                <div className="display whitespace-nowrap text-[1.9rem] text-deck-navy sm:text-5xl">
+                  <Contador valor={e.valor} prefixo={e.prefixo} sufixo={e.sufixo} />
                 </div>
                 <div className="mt-3 text-sm leading-snug text-deck-ink/60">
                   {e.label}
