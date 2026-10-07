@@ -10,7 +10,7 @@ import { obras, getObraBySlug, getObraFotos, temVideo } from "@/lib/obras";
 
 export function generateStaticParams() {
   // Estas obras têm página dedicada em app/portfolio/<slug>/page.tsx
-  const dedicadas = ["obra-judith", "obra-maria-olinda"];
+  const dedicadas = ["obra-judith", "obra-maria-olinda", "benicio-goncalves"];
   return obras.filter((o) => !dedicadas.includes(o.slug)).map((o) => ({ slug: o.slug }));
 }
 

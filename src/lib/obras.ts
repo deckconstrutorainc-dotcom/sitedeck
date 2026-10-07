@@ -36,6 +36,17 @@ export const obras: Obra[] = [
     fotos: manifest["obra-maria-olinda"]?.length ?? 0,
   },
   {
+    slug: "benicio-goncalves",
+    titulo: "Obra Benício Gonçalves",
+    categoria: "Edificação escolar",
+    local: "Vila Velha - ES",
+    ano: "2022",
+    resumo:
+      "Reforma de unidade escolar estadual e reconstrução completa da quadra esportiva, com nova estrutura metálica, cobertura termoacústica e revitalização da fachada com brises.",
+    capa: "capa",
+    fotos: manifest["benicio-goncalves"]?.length ?? 0,
+  },
+  {
     slug: "sml",
     titulo: "SML — Polícia Científica",
     categoria: "Edificação pública",
@@ -78,17 +89,6 @@ export const obras: Obra[] = [
       "Instalação de escada rolante e serviços de pintura em torre, arquibancada e pisos, executados em estádio em operação.",
     capa: "foto-08",
     fotos: manifest["estadio-kleber-andrade"]?.length ?? 0,
-  },
-  {
-    slug: "benicio-goncalves",
-    titulo: "Escola Benício Gonçalves",
-    categoria: "Edificação escolar",
-    local: "Vitória - ES",
-    ano: "2023",
-    resumo:
-      "Reforma e ampliação de unidade escolar, incluindo cobertura metálica de quadra, fechamentos e revitalização de fachada.",
-    capa: "foto-02",
-    fotos: manifest["benicio-goncalves"]?.length ?? 0,
   },
   {
     slug: "vale-encantado",
