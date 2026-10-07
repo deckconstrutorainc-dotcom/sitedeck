@@ -12,14 +12,27 @@ const SLUG = "obra-judith";
 export const metadata: Metadata = {
   title: "Obra Judith | Portfólio Deck Construtora",
   description:
-    "Reforma e ampliação da EEEF Judith Leão Castello Ribeiro, em Vitória - ES: quadra poliesportiva coberta, vestiários, castelo d'água, instalações elétricas e urbanização completa, executados pela Deck Construtora.",
+    "Reforma e ampliação da EEEF Judith Leão Castello Ribeiro, em Serra - ES: 2.864 m² de intervenção, quadra poliesportiva coberta, vestiários, castelo d'água, instalações elétricas e urbanização completa, executados pela Deck Construtora.",
 };
 
 const FICHA = [
   { label: "Cliente", valor: "Secretaria de Estado da Educação (SEDU-ES)" },
-  { label: "Localização", valor: "Vitória, Espírito Santo" },
+  { label: "Localização", valor: "Pitanga, Serra - ES" },
   { label: "Tipo de obra", valor: "Reforma e ampliação de edificação escolar" },
   { label: "Status", valor: "Concluída" },
+] as const;
+
+// Áreas: ARTs CREA-ES 0820260071104 e 0820250219836. Demais: soma dos
+// quantitativos da planilha contratual (CT 130/2022), arredondados para baixo.
+const NUMEROS = [
+  { valor: "2.864 m²", label: "de área total de intervenção" },
+  { valor: "2.102 m²", label: "de estruturas metálicas montadas" },
+  { valor: "+14 t", label: "de perfis metálicos estruturais" },
+  { valor: "+340 m³", label: "de concreto usinado" },
+  { valor: "+22 t", label: "de aço em armaduras" },
+  { valor: "+2.000 m²", label: "de cobertura termoacústica" },
+  { valor: "+12 km", label: "de cabos elétricos" },
+  { valor: "30 mil L", label: "de reservação no castelo d'água" },
 ] as const;
 
 const INTERVENCOES = [
@@ -118,6 +131,26 @@ export default function ObraJudithPage() {
                   <span className="eyebrow text-deck-ink/35">{f.label}</span>
                   <p className="mt-3 text-lg font-medium text-deck-ink">
                     {f.valor}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="mt-14">
+              <Eyebrow>Números da obra</Eyebrow>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+            {NUMEROS.map((n, i) => (
+              <Reveal key={n.label} delay={(i % 4) * 0.06}>
+                <div className="border-l-2 border-deck-accent-strong pl-4">
+                  <p className="display whitespace-nowrap text-[1.7rem] text-deck-navy sm:text-4xl">
+                    {n.valor}
+                  </p>
+                  <p className="mt-2 text-sm leading-snug text-deck-ink/60">
+                    {n.label}
                   </p>
                 </div>
               </Reveal>
