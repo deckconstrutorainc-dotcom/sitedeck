@@ -68,7 +68,14 @@ export default function ContatoPage() {
                 },
                 {
                   label: "Diretor Comercial",
-                  conteudo: <>Bruno Feitosa Tedesco — (27) 8134-5555</>,
+                  conteudo: (
+                    <>
+                      Bruno Feitosa Tedesco —{" "}
+                      <a href="tel:+5527981558725" className="hover:text-deck-navy">
+                        (27) 98155-8725
+                      </a>
+                    </>
+                  ),
                 },
               ].map((item, i) => (
                 <Reveal key={item.label} delay={i * 0.06}>
