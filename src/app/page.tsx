@@ -52,7 +52,7 @@ export default function Home() {
 
             <Reveal delay={0.1}>
               <h1 className="display mt-6 max-w-xl text-[2.5rem] text-deck-ink sm:text-6xl lg:text-6xl">
-                Construímos com precisão técnica e mais de{" "}
+                Construímos com precisão técnica há mais de{" "}
                 <span className="text-deck-accent-strong">30 anos</span> de experiência
               </h1>
             </Reveal>
