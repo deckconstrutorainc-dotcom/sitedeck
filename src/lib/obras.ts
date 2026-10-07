@@ -14,6 +14,17 @@ export type Obra = {
 
 export const obras: Obra[] = [
   {
+    slug: "obra-judith",
+    titulo: "Obra Judith",
+    categoria: "Edificação escolar",
+    local: "Espírito Santo",
+    ano: "2022",
+    resumo:
+      "Reforma e ampliação de unidade escolar estadual, incluindo quadra poliesportiva coberta, vestiários, castelo d'água, instalações elétricas e urbanização completa das áreas externas.",
+    capa: "capa",
+    fotos: manifest["obra-judith"]?.length ?? 0,
+  },
+  {
     slug: "sml",
     titulo: "SML — Polícia Científica",
     categoria: "Edificação pública",
