@@ -46,7 +46,7 @@ export default function Home() {
           <div className="relative z-10">
             <Reveal>
               <span className="eyebrow text-deck-navy">
-                Engenharia e construção civil · Vitória, ES
+                Engenharia e construção civil · Serra, ES
               </span>
             </Reveal>
 

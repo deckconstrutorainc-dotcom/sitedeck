@@ -56,7 +56,7 @@ const PERGUNTAS = [
   {
     titulo: "Em que regiões a empresa atua?",
     texto:
-      "Nossa sede fica em Vitória, no Espírito Santo, e atendemos obras em todo o estado. Consulte-nos para projetos em outras regiões.",
+      "Nossa sede fica na Serra, no Espírito Santo, e atendemos obras em todo o estado. Consulte-nos para projetos em outras regiões.",
   },
   {
     titulo: "A Deck executa apenas obras novas?",

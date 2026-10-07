@@ -12,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Deck Construtora e Incorporadora",
   description:
-    "Deck Construtora e Incorporadora — mais de 30 anos de experiência em engenharia e construção civil em Vitória, ES. Obras públicas e privadas com qualidade, tecnologia e sustentabilidade.",
+    "Deck Construtora e Incorporadora — mais de 30 anos de experiência em engenharia e construção civil no Espírito Santo, com sede na Serra - ES. Obras públicas e privadas com qualidade, tecnologia e sustentabilidade.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
