@@ -73,10 +73,10 @@ export const obras: Obra[] = [
     titulo: "CIE — Estação Cidadania-Esporte",
     categoria: "Equipamento esportivo",
     local: "Serra - ES",
-    ano: "2020",
+    ano: "2017",
     resumo:
-      "Centro de Iniciação ao Esporte com ginásio poliesportivo coberto, quadra oficial, vestiários e áreas de apoio.",
-    capa: "foto-01",
+      "Centro de Iniciação ao Esporte com ginásio poliesportivo coberto de 1.795 m², pista de atletismo sintética, pista de salto, vestiários e áreas de apoio.",
+    capa: "capa",
     fotos: manifest["cie"]?.length ?? 0,
   },
   {
@@ -155,4 +155,3 @@ export function getObraFotos(slug: string): string[] {
   return (manifest as Record<string, string[]>)[slug] ?? [];
 }
 
-export const temVideo = (slug: string) => slug === "cie";

@@ -6,11 +6,11 @@ import GaleriaFotos from "@/components/GaleriaFotos";
 import CtaContato from "@/components/CtaContato";
 import Reveal from "@/components/Reveal";
 import Eyebrow from "@/components/Eyebrow";
-import { obras, getObraBySlug, getObraFotos, temVideo } from "@/lib/obras";
+import { obras, getObraBySlug, getObraFotos } from "@/lib/obras";
 
 export function generateStaticParams() {
   // Estas obras têm página dedicada em app/portfolio/<slug>/page.tsx
-  const dedicadas = ["obra-judith", "obra-maria-olinda", "benicio-goncalves"];
+  const dedicadas = ["obra-judith", "obra-maria-olinda", "benicio-goncalves", "cie"];
   return obras.filter((o) => !dedicadas.includes(o.slug)).map((o) => ({ slug: o.slug }));
 }
 
@@ -38,7 +38,6 @@ export default async function ObraPage({
   if (!obra) notFound();
 
   const fotos = getObraFotos(slug);
-  const videos = temVideo(slug) ? [`/videos/${slug}-01.mp4`, `/videos/${slug}-02.mp4`] : [];
   const outras = obras.filter((o) => o.slug !== slug).slice(0, 3);
 
   return (
@@ -111,29 +110,6 @@ export default async function ObraPage({
           </Reveal>
         </div>
       </section>
-
-      {/* VÍDEOS */}
-      {videos.length > 0 && (
-        <section className="bg-deck-ink py-24">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <Reveal>
-              <Eyebrow tom="claro">Vídeos da obra</Eyebrow>
-            </Reveal>
-            <div className="mt-12 grid gap-5 sm:grid-cols-2">
-              {videos.map((src, i) => (
-                <Reveal key={src} delay={i * 0.08}>
-                  <video
-                    src={src}
-                    controls
-                    playsInline
-                    className="w-full rounded-xl bg-black"
-                  />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* GALERIA */}
       <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8">

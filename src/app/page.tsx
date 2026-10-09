@@ -179,7 +179,7 @@ export default function Home() {
         {/* mosaico de imagens */}
         <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {[
-            "cie/foto-01",
+            "cie/ginasio",
             "cond-vista-do-mar/foto-14",
             "parque-tecnologico/foto-01",
             "sml/foto-09",

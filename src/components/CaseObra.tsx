@@ -27,6 +27,7 @@ export type CaseObraProps = {
   numeros: { valor: string; label: string }[];
   secoes: Secao[];
   intervencoes: string[];
+  videos?: string[];
 };
 
 function FotoCase({
@@ -148,6 +149,7 @@ export default function CaseObra({
   numeros,
   secoes,
   intervencoes,
+  videos = [],
 }: CaseObraProps) {
   const fotos = getObraFotos(slug);
   const outras = obras.filter((o) => o.slug !== slug).slice(0, 3);
@@ -265,6 +267,27 @@ export default function CaseObra({
           </div>
         </div>
       </section>
+
+      {videos.length > 0 && (
+        <section className="mx-auto max-w-7xl px-5 pt-24 sm:px-8">
+          <Reveal>
+            <Eyebrow>Vídeos da obra</Eyebrow>
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+            {videos.map((src, i) => (
+              <Reveal key={src} delay={i * 0.08}>
+                <video
+                  src={src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full rounded-xl bg-black"
+                />
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* GALERIA COMPLETA */}
       <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
